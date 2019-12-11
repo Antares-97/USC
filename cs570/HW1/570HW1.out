@@ -1,0 +1,9 @@
+\BOOKMARK [1][-]{section.1}{Graded\040Problems}{}% 1
+\BOOKMARK [2][-]{subsection.1.1}{State\040True/False:\040An\040instance\040of\040the\040stable\040marriage\040problem\040has\040a\040unique\040stable\040matching\040if\040and\040only\040if\040the\040version\040of\040the\040Gale-Shapely\040algorithm\040where\040the\040male\040proposes\040and\040the\040version\040where\040the\040female\040proposes\040both\040yield\040the\040exact\040same\040matching.}{section.1}% 2
+\BOOKMARK [2][-]{subsection.1.2}{A\040stable\040roommate\040problem\040with\0404\040students\040a,\040b,\040c,\040d\040is\040defined\040as\040follows.\040Each\040student\040ranks\040the\040other\040three\040in\040strict\040order\040of\040preference.\040A\040match-\040ing\040is\040defined\040as\040the\040separation\040of\040the\040students\040into\040two\040disjoint\040pairs.\040A\040matching\040is\040stable\040if\040no\040two\040separated\040students\040prefer\040each\040other\040to\040their\040current\040roommates.\040Does\040a\040stable\040matching\040always\040exist?\040If\040yes,\040give\040a\040proof.\040Otherwise\040give\040an\040example\040roommate\040preference\040where\040no\040stable\040matching\040exists.}{section.1}% 3
+\BOOKMARK [2][-]{subsection.1.3}{Kleinberg\040and\040Tardos,\040Chapter\0401,\040Exercise\0404}{section.1}% 4
+\BOOKMARK [2][-]{subsection.1.4}{N\040men\040and\040N\040women\040were\040participating\040in\040a\040stable\040matching\040process\040in\040a\040small\040town\040named\040Walnut\040Grove.}{section.1}% 5
+\BOOKMARK [1][-]{section.2}{Practice\040Problems}{}% 6
+\BOOKMARK [2][-]{subsection.2.1}{Kleinberg\040and\040Tardos,\040Chapter\0401,\040Exercise\0401.}{section.2}% 7
+\BOOKMARK [2][-]{subsection.2.2}{Kleinberg\040and\040Tardos,\040Chapter\0401,\040Exercise\0402.}{section.2}% 8
+\BOOKMARK [2][-]{subsection.2.3}{Kleinberg\040and\040Tardos,\040Chapter\0401,\040Exercise\0403.}{section.2}% 9

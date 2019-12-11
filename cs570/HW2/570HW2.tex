@@ -1,0 +1,220 @@
+\documentclass[31pt]{article}
+\setlength{\columnsep}{0.13\columnwidth}
+%\setlength{\columnseprule}{0.05\columnwidth}
+ 
+\usepackage{geometry}
+\geometry{left=2.3cm, right=2.3cm, top=2.5cm, bottom=2.0cm}
+
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+
+\usepackage{xeCJK}
+
+\usepackage{subfigure}
+
+\usepackage{amssymb}
+
+\usepackage{amsmath}
+
+\usepackage{graphicx}
+
+\usepackage{booktabs}
+
+\usepackage{longtable}
+
+\usepackage{tabularx}
+
+\usepackage{wrapfig}
+
+\usepackage{indentfirst}
+
+\usepackage{bm}								%粗斜体
+
+\usepackage{float}								%超级好用！浮动排版！
+
+\usepackage{flushend,cuted}
+ 
+\usepackage{caption}
+\captionsetup{font={scriptsize}}						%改变图名字体大小
+
+\usepackage{subfig}
+\captionsetup[subfigure]{labelformat=simple, listofformat=subsimple, farskip = 0pt}
+
+\usepackage{hyperref}							%超链接!
+
+\usepackage{fancyhdr}
+
+\usepackage{stfloats}
+
+\setlength{\parindent}{2em}
+
+\linespread{1.2}
+
+\usepackage{ragged2e}             %两端对齐!
+
+\usepackage{algorithm}
+
+\usepackage{algorithmicx}
+
+\usepackage{algpseudocode}
+
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}  % Use Input in the format of Algorithm
+\renewcommand{\algorithmicensure}{\textbf{Output:}} % Use Output in the format of Algorithm
+
+\begin{document}
+
+\title{CSCI 570 - Fall 2019 - HW 2}
+\author{Junzhe Liu,\; 2270250947}
+
+\begin{document}
+
+\maketitle
+
+\pagestyle{fancy}
+\lhead{}
+\rhead{\textbf{\thepage}}
+\chead{\textit{ Junzhe Liu / 2270250947 / Viterbi School of Engineering, Computer Science}}
+\lfoot{}
+\cfoot{}
+\rfoot{}
+
+\section{Graded Problems}
+
+\subsection{Kleinberg and Tardos, Chapter 2, Exercise 3.}
+
+\begin{equation}
+\sqrt{2n}\,<\,n+10\,<\,n^2\log n\,<\,n^{2.5}\,<\,10^{n}\,<\,100^{n}
+\end{equation}
+
+\subsection{Kleinberg and Tardos, Chapter 2, Exercise 4.}
+
+\begin{equation}
+n^{\frac{4}{3}}\,<\,n(\log n)^3\,<\,n^{\log n}\,<\,2^{\sqrt{\log n}}\,<\,2^{n}\,<\,2^{n^2}\,<\,2^{2^n}
+\end{equation}
+
+\subsection{Kleinberg and Tardos, Chapter 2, Exercise 5.}
+
+\subsubsection{$\log_2f(n)$ is $O(\log_2 g(n))$}
+
+This is false. If $g(n)=1$ and $f(n)=2$ for all $n$, then by choosing $c\geq2$ we will have $f(n)=O(g(n))$. However, $O(\log_2 g(n))$ will be 0.
+
+\subsubsection{$2^{f(n)}$ is $O(2^{g(n)})$}
+
+False. Let $f(n)=2n$ and $g(n)=n$, then $2^{f(n)}=4^n>2^n=2^{g(n)}$ for all $n>0$.
+
+\subsubsection{$f(n)^2$ is $O(g(n)^2)$}
+
+True. We have $f(n)\leq c\cdot g(n)$ for all $n\geq n_0$. Then:
+\begin{equation}
+f(n)^2 \leq c^2\cdot g(n)^2 = C\cdot g(n)^2 = O(g(n)^2).
+\end{equation}
+
+By choosing new $c'=C=c^2$, we will have $f(n)^2=O(g(n)^2)$.
+
+\subsection{Which of the following statements are true?}
+
+\subsubsection{If $f$, $g$, and $h$ are positive increasing functions with $f$ in $O(h)$ and $g$ in $\Omega(h)$, then the function $f + g$ must be in $\Theta(h)$.}
+
+False. We let $f(n)=\log n, g(n)=n^2, h(n)=n$, then $f+g = n^2+\log n = \Omega(h(n))$, but not $\Theta(h(n))$.
+
+\subsubsection{Given a problem with input of size $n$, a solution with $O(n)$ time
+complexity always costs less in computing time than a solution with
+$O(n^2)$ time complexity.}
+
+False. $O(n), O(n^2)$ are just the upper bound of the worst situation complexities. The real operation numbers and running time are uncertain, and there is possibility that $O(n^2)$ program runs quicker than $O(n)$. We can only say that $O(n)$ costs less when $n$ is really big.
+
+\subsubsection{$F(n)=4n+\sqrt{3n}$ is both $O(n)$ and $\Theta(n)$.}
+
+True. Since $n^2>3n$ for all $n>3$, then $4n+\sqrt{3n}\leq 4n + n = 5n$. Therefore $F(n)=O(n)$. Apparently $F(n)>4n$, then $F(n)=Theta(n)$.
+
+\subsubsection{For a search starting at node $s$ in graph $G$, the DFS Tree is never as the same as the BFS tree.}
+
+False. For a graph $G$ takes the shape of a straight line, and by choosing starting point $s$ as one of the end point, DFS tree is as the same as BFS tree.
+
+\subsubsection{BFS can be used to find the shortest path between any two nodes in a non-weighted graph.}
+
+False, if the graph is not connected, and two points are located separately, BFS can not find the shortest path.
+
+\subsection{Kleinberg and Tardos, Chapter 3, Exercise 2.}
+
+\begin{algorithm}
+        \caption{Undirected Graph Cycle Detection Algorithm}
+        \begin{algorithmic}[1] %每行显示行号
+        \Require
+      The start vertex, the visited set, and the parent node of the vertex.
+    \Ensure
+      True a cycle is found.
+                \Function {isCyclicUntil}{start point $v$, array $visited$, parent node $parent$}
+                \State visited[v]=true;
+                \For {all adjacent point $u$ of $v$}
+                \If{$u$ is not visited and isCyclicUntil(u, visited, v)}
+                		\State\Return{$true$}
+		\Else\If{$u$ is not the parent node of current node}
+		\State\Return {$true$}
+		\EndIf
+		\EndIf
+                \EndFor
+            \EndFunction
+            \State
+            \Function{isCyclic}{Graph $G$}
+                \State Initialize array $visited$ as false
+                 \For{point $v$ in the Graph}
+                    \If{$v$ is not visited and isCyclicUntil(v, visited, -1)}	                    \State\Return{$true$}
+                    \EndIf
+                \EndFor
+                \State \Return{$false$}
+           \EndFunction
+     \end{algorithmic}
+\end{algorithm}
+
+We use DFS algorithm to detect Cycle in a graph. 
+
+Detect Cycle in a undirected Graph: For every visited vertex $u$, when we have found any adjacent vertex $v$, such that $v$ is already visited, and $v$ is not the parent of vertex $u$. Then one cycle is detected. 
+
+\section{Practice Problems}
+
+\subsection{Kleinberg and Tardos, Chapter 2, Exercise 6.}
+
+\subsubsection{}
+
+The outer loop takes $n$ iterations, and the inner loop takes at most $n-1$ loops. In each iteration, the sum takes $j-i+1$ operations. Therefore the complexity of this function is:
+\begin{equation}
+O(f(n))=O(n^3)
+\end{equation}
+
+\subsubsection{}
+
+For $i<n/4$ and $j>3n/4$, the sum step takes $j-i+1>n/2$ operations. Since there are $n/4$ such pairs of $(i, j)$, the complexity is at least:
+\begin{equation}
+\frac{n}{2}\cdot(\frac{n}{4})^2=\frac{n^3}{32}
+\end{equation}
+
+Therefore it's also $\Omega(n^3)$.
+
+\subsubsection{}
+
+\begin{algorithm}
+        \caption{Quick-sum Algorithm}
+        \begin{algorithmic}[1] %每行显示行号
+                \For {i=1,2,3,\ldots,n-1}
+                \State B[i,i+1]=A[i]+A[i+1];
+                \EndFor
+                \For {i=1,2,3,\ldots,n-2}
+                \For{k=2,3,\ldots,n-i}
+                \State j=i+k;
+                \State B[i,j]= B[i, j-1]+A[j];
+                \EndFor
+                \EndFor
+                \end{algorithmic}
+\end{algorithm}
+
+The complexity is $O(n^2)$.
+
+\subsection{Kleinberg and Tardos, Chapter 3, Exercise 6.}
+
+Suppose that $G$ contains a edge $e$ that does not belong in BFS tree (We denote as $T_1$). Since all nodes on each levels of BFS tree have the same number of edges going from the root $u$, therefore the edge $e$ must be connected to two nodes on the same level, otherwise, it will be included in the BFS tree. However, if we operate DFS on the same graph $G$, it will include $e$ in its tree because it always goes deeper into the graph. Eventually making the DFS tree differs from the BFS tree. According to the topic, BFS tree and DFS tree are identical, therefore such edge $e$ does not exists. $G=T$.
+
+
+
+
+\end{document}
