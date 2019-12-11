@@ -1,0 +1,13 @@
+\BOOKMARK [1][-]{section.1}{Reading\040Assignment:}{}% 1
+\BOOKMARK [1][-]{section.2}{Problems\040to\040be\040solved:}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{Chapter\0402,\040Page\040171:\040R1\040List\040five\040nonproprietary\040Internet\040applications\040and\040the\040application-layer\040protocols\040they\040use.}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Chapter\0402,\040Page\040171:\040R2\040What\040is\040the\040difference\040between\040network\040architecture\040and\040application\040architecture?}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{Chapter 2, Page 171: R4 For a P2P file-sharing application, do you agree with the statement, “There is no notion of client and server sides of a communication session”? Why or why not?}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.4}{Chapter\0402,\040Page\040171:\040R5\040What\040information\040is\040used\040by\040a\040process\040running\040on\040one\040host\040to\040identify\040a\040process\040running\040on\040another\040host?}{section.2}% 6
+\BOOKMARK [2][-]{subsection.2.5}{Chapter\0402,\040Page\040171:\040R6\040Suppose\040you\040wanted\040to\040do\040a\040transaction\040from\040a\040remote\040client\040to\040a\040server\040as\040fast\040as\040possible.\040Would\040you\040use\040UDP\040or\040TCP?\040Why?}{section.2}% 7
+\BOOKMARK [2][-]{subsection.2.6}{Chapter\0402,\040Page\040173:\040P1\040True\040or\040False:}{section.2}% 8
+\BOOKMARK [3][-]{subsubsection.2.6.1}{A\040user\040requests\040a\040Web\040page\040that\040consists\040of\040some\040text\040and\040three\040images.\040For\040this\040page,\040the\040client\040will\040send\040one\040request\040message\040and\040receive\040four\040response\040messages.}{subsection.2.6}% 9
+\BOOKMARK [3][-]{subsubsection.2.6.2}{Two\040distinct\040Web\040pages\040\(for\040example,\040www.mit.edu/research.html\040and\040www.mit.edu/students.html\)\040can\040be\040sent\040over\040the\040same\040persistent\040connection.}{subsection.2.6}% 10
+\BOOKMARK [3][-]{subsubsection.2.6.3}{With\040nonpersistent\040connections\040between\040browser\040and\040origin\040server,\040it\040is\040possible\040for\040a\040single\040TCP\040segment\040to\040carry\040two\040distinct\040HTTP\040request\040messages.}{subsection.2.6}% 11
+\BOOKMARK [3][-]{subsubsection.2.6.4}{The\040Date\040:\040header\040in\040the\040HTTP\040response\040message\040indicates\040when\040the\040object\040in\040the\040response\040was\040last\040modified.}{subsection.2.6}% 12
+\BOOKMARK [3][-]{subsubsection.2.6.5}{HTTP\040response\040messages\040never\040have\040an\040empty\040message\040body.}{subsection.2.6}% 13

@@ -1,0 +1,156 @@
+\documentclass[31pt]{article}
+\setlength{\columnsep}{0.13\columnwidth}
+%\setlength{\columnseprule}{0.05\columnwidth}
+ 
+\usepackage{geometry}
+\geometry{left=2.3cm, right=2.3cm, top=2.5cm, bottom=2.5cm}
+
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+
+\usepackage{xeCJK}
+
+\usepackage{subfigure}
+
+\usepackage{amssymb}
+
+\usepackage{amsmath}
+
+\usepackage{graphicx}
+
+\usepackage{booktabs}
+
+\usepackage{longtable}
+
+\usepackage{tabularx}
+
+\usepackage{wrapfig}
+
+\usepackage{indentfirst}
+
+\usepackage{bm}								%粗斜体
+
+\usepackage{float}								%超级好用！浮动排版！
+
+\usepackage{flushend,cuted}
+ 
+\usepackage{caption}
+\captionsetup{font={scriptsize}}						%改变图名字体大小
+
+\usepackage{subfig}
+\captionsetup[subfigure]{labelformat=simple, listofformat=subsimple, farskip = 0pt}
+
+\usepackage{hyperref}							%超链接!
+
+\usepackage{fancyhdr}
+
+\usepackage{stfloats}
+
+\setlength{\parindent}{2em}
+
+\linespread{1.2}
+
+\usepackage{ragged2e}             %两端对齐!
+
+\usepackage{algorithm}
+
+\usepackage{algorithmicx}
+
+\usepackage{algpseudocode}
+
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}  % Use Input in the format of Algorithm
+\renewcommand{\algorithmicensure}{\textbf{Output:}} % Use Output in the format of Algorithm
+
+\begin{document}
+
+\title{EE450 Introduction to Computer Networks - Fall 2019 - HW 4}
+\author{Junzhe Liu,\; 2270250947}
+
+\begin{document}
+
+\maketitle
+
+\pagestyle{fancy}
+\lhead{}
+\rhead{\textbf{\thepage}}
+\chead{\textit{ Junzhe Liu / 2270250947 / Viterbi School of Engineering, Computer Science}}
+\lfoot{}
+\cfoot{}
+\rfoot{}
+
+\section{Reading Assignment:}
+
+\justifying\large Chapter 2
+
+\section{Problems to be solved:}
+
+\subsection{Chapter 2, Page 171: R1 List five nonproprietary Internet applications and the application-layer protocols they
+use.}
+
+\begin{itemize}
+\item The Web: HTTP
+
+\item Remote login: Telnet
+
+\item Network News: NNTP
+
+\item e-mail: SMTP.
+
+\item File transfer: FTP
+\end{itemize}
+
+
+\subsection{Chapter 2, Page 171: R2 What is the difference between network architecture and application architecture?}
+
+Network architecture refers to the organization of the communication process into layers(e.g. the five-layer Internet architecture). From the perspective of the application developers, network architecture is fixed, and has offered specific services for applications. Application architectures are designed by the developers, and it rules how applications are organized on different end-systems(e.g. P2P, client-server architecture).
+
+\subsection{Chapter 2, Page 171: R4 For a P2P file-sharing application, do you agree with the statement, “There is no notion of client and server sides of a communication session”? Why or why not?}
+
+Not exactly, the receiver is actually the client, and the transmitter is equivalently the server.
+
+
+
+
+\subsection{Chapter 2, Page 171: R5  What information is used by a process running on one host to identify a process running on another host?}
+
+IP address of the destination host and the port number of the destination process.
+
+
+
+
+\subsection{Chapter 2, Page 171: R6  Suppose you wanted to do a transaction from a remote client to a server as fast as possible. Would you use UDP or TCP? Why?}
+
+UDP. Because using TCP would take time to build up connection, send the request and reply with confirmation.
+
+
+
+\subsection{Chapter 2, Page 173: P1 True or False:}
+
+\subsubsection{A user requests a Web page that consists of some text and three images. For this
+page, the client will send one request message and receive four response
+messages.}
+
+False, in non-persistent HTTP, only one object can be sent in one connections. Multiple objects require multiple connections and requests.
+
+
+\subsubsection{Two distinct Web pages (for example, www.mit.edu/research.html and www.mit.edu/students.html) can be sent over the same persistent connection.}
+
+True. Multiple objects can be sent over single TCP connection.
+
+\subsubsection{With nonpersistent connections between browser and origin server, it is possible for a single TCP segment to carry two distinct HTTP request messages.}
+
+False.
+
+
+
+\subsubsection{The Date : header in the HTTP response message indicates when the object in the response was last modified.}
+
+False.
+
+
+
+\subsubsection{HTTP response messages never have an empty message body.}
+
+True. If one request succeeds, then the information would be supplied as a response.But if the response fails then an error message would be returned. A 404 Not Founds Response would occur if it wasn't found so it's not possible for a reply to be empty.
+
+\end{document}

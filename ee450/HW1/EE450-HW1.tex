@@ -1,0 +1,158 @@
+\documentclass[31pt]{article}
+\setlength{\columnsep}{0.13\columnwidth}
+%\setlength{\columnseprule}{0.05\columnwidth}
+ 
+\usepackage{geometry}
+\geometry{left=2.3cm, right=2.3cm, top=2.5cm, bottom=2.5cm}
+
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+
+\usepackage{xeCJK}
+
+\usepackage{subfigure}
+
+\usepackage{amssymb}
+
+\usepackage{amsmath}
+
+\usepackage{graphicx}
+
+\usepackage{booktabs}
+
+\usepackage{longtable}
+
+\usepackage{tabularx}
+
+\usepackage{wrapfig}
+
+\usepackage{indentfirst}
+
+\usepackage{bm}								%粗斜体
+
+\usepackage{float}								%超级好用！浮动排版！
+
+\usepackage{flushend,cuted}
+ 
+\usepackage{caption}
+\captionsetup{font={scriptsize}}						%改变图名字体大小
+
+\usepackage{subfig}
+\captionsetup[subfigure]{labelformat=simple, listofformat=subsimple, farskip = 0pt}
+
+\usepackage{hyperref}							%超链接!
+
+\usepackage{fancyhdr}
+
+\usepackage{stfloats}
+
+\setlength{\parindent}{2em}
+
+\linespread{1.2}
+
+\usepackage{ragged2e}             %两端对齐!
+
+\usepackage{algorithm}
+
+\usepackage{algorithmicx}
+
+\usepackage{algpseudocode}
+
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}  % Use Input in the format of Algorithm
+\renewcommand{\algorithmicensure}{\textbf{Output:}} % Use Output in the format of Algorithm
+
+\begin{document}
+
+\title{EE450 Introduction to Computer Networks - Fall 2019 - HW 1}
+\author{Junzhe Liu,\; 2270250947}
+
+\begin{document}
+
+\maketitle
+
+\pagestyle{fancy}
+\lhead{}
+\rhead{\textbf{\thepage}}
+\chead{\textit{ Junzhe Liu / 2270250947 / Viterbi School of Engineering, Computer Science}}
+\lfoot{}
+\cfoot{}
+\rfoot{}
+
+\section{Reading Assignment:}
+
+\justifying\large Chapter 1
+
+\section{Problems to be solved:}
+
+\subsection{Chapter 1, Page 67: R4. List six access technologies. Classify each one as home access, enterprise access, or wide-area wireless access.}
+
+Home access: DSL, Cable, FTTH, Dial-Up, Satellite, Ethernet, and WiFi
+
+Enterprise access: Ethernet and WiFi
+
+Wide-area wireless access: 3G and LTE
+
+
+\subsection{Chapter 1, Page 68: R16. Consider sending a packet from a source host to a destination host over a fixed route. List the delay components in the end-to-end delay. Which of these delays or constant and which are variable?}
+
+Delay components: Processing delay, queueing delay, transmission delay, and propagation delay.
+
+For a fixed route, Processing delay and propagation delay should be constant, because the address and the distance are invariant. However the queueing delay and transmission delay could be variant according to the network congestion situation and the size of the packet.
+
+
+
+\subsection{How long does it take a packet of length 1,500 bytes to propagate over a link of distance 35,200 km, propagation speed $3 \times 10^8$ m/s, and transmission rate 20 Mbps? More generally, how long does it take a packet of length $L$ to propagate over a link of distance $d$, propagation speed $s$, and transmission rate $R$ bps. Does this delay depend on packet length? Does this delay depend on transmission rate?}
+
+Total time: 
+\begin{equation}
+\frac{1500 bytes}{20 Mbps} + \frac{35200 km}{3\times 10^5 km/s} = 7.5\times 10^{-5}+0.11733 s = 0.1174 s
+\end{equation}
+
+Generally:
+\begin{equation}
+T = \frac{L}{R} + \frac{d}{s}
+\end{equation}
+
+Certainly, the time depends on the transmission rate and the packet length.
+
+
+\subsection{Chapter 1, Page 70: P3. Consider an application that transmits data at a steady rate (for example, the sender generates an N-bit unit of data every k time units, where k is small and fixed). Also, when such an application starts, it will continue running for a relatively long period of time. Answer the following questions, briefly justifying your answer:}
+
+\subsubsection{Would a packet-switched network or a circuit-switched network be more appropriate for this application? Why?}
+
+Circuit-switched network is appropriate for this application. Since the application's bandwidth requirements are predictable and periodic. Time-Division-Multiplexing will be suitable.
+
+
+\subsubsection{Suppose that a packet-switched network is used and the only traffic in this network comes from such applications described above. Furthermore, assume that the sum of the application data rates is less than the capacities of each and every link. Is some form of congestion control needed? Why?}
+
+In the worst situation, all applications will send packets in the same time. But since the link is capable holding the sum of the application data, no congestion control is needed.
+
+
+
+
+\subsection{Chapter 1, Page 70: P4. Consider the circuit-switched network in Figure 1.13. Recall that there are 4 circuits on each link. Label the four switches A, B, C, and D, going in the clockwise direction.}
+
+\subsubsection{What is the maximum number of simultaneous connections that can be in progress at any one time in this network?}
+
+If FDM is adopted, then on each circuit a bi-direction connection can be set up, therefore for two adjacent switches, there can be 4 circuits maximal. Since there are 4 pairs of adjacent switches, so the maximum connections is 16.
+
+
+\subsubsection{Suppose that all connections are between switches A and C. What is the maximum number of simultaneous connections that can be in progress?}
+
+8 connections. 4 of them via B while the other 4 goes through D.
+
+
+\subsubsection{Suppose we want to make four connections between switches A and C, and another four connections between switches B and D. Can we route these calls through the four links to accommodate all eight connections?}
+
+YES. Just let 2 connections goes from A-D-C, the other 2 connections goes through A-B-C. For B-D connections, 2 of them goes B-A-D and the others goes through B-C-D.
+
+
+
+
+
+
+
+
+
+
+\end{document}

@@ -1,0 +1,162 @@
+\documentclass[31pt]{article}
+\setlength{\columnsep}{0.13\columnwidth}
+%\setlength{\columnseprule}{0.05\columnwidth}
+ 
+\usepackage{geometry}
+\geometry{left=2.3cm, right=2.3cm, top=2.5cm, bottom=2.5cm}
+
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+
+\usepackage{xeCJK}
+
+\usepackage{subfigure}
+
+\usepackage{amssymb}
+
+\usepackage{amsmath}
+
+\usepackage{graphicx}
+
+\usepackage{booktabs}
+
+\usepackage{longtable}
+
+\usepackage{tabularx}
+
+\usepackage{wrapfig}
+
+\usepackage{indentfirst}
+
+\usepackage{bm}								%粗斜体
+
+\usepackage{float}								%超级好用！浮动排版！
+
+\usepackage{flushend,cuted}
+ 
+\usepackage{caption}
+\captionsetup{font={scriptsize}}						%改变图名字体大小
+
+\usepackage{subfig}
+\captionsetup[subfigure]{labelformat=simple, listofformat=subsimple, farskip = 0pt}
+
+\usepackage{hyperref}							%超链接!
+
+\usepackage{fancyhdr}
+
+\usepackage{stfloats}
+
+\setlength{\parindent}{2em}
+
+\linespread{1.2}
+
+\usepackage{ragged2e}             %两端对齐!
+
+\usepackage{algorithm}
+
+\usepackage{algorithmicx}
+
+\usepackage{algpseudocode}
+
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}  % Use Input in the format of Algorithm
+\renewcommand{\algorithmicensure}{\textbf{Output:}} % Use Output in the format of Algorithm
+
+\begin{document}
+
+\title{EE450 Introduction to Computer Networks - Fall 2019 - HW 2}
+\author{Junzhe Liu,\; 2270250947}
+
+\begin{document}
+
+\maketitle
+
+\pagestyle{fancy}
+\lhead{}
+\rhead{\textbf{\thepage}}
+\chead{\textit{ Junzhe Liu / 2270250947 / Viterbi School of Engineering, Computer Science}}
+\lfoot{}
+\cfoot{}
+\rfoot{}
+
+\section{Reading Assignment:}
+
+\justifying\large Chapter 1
+
+\section{Problems to be solved:}
+
+\subsection{Chapter 1, Page 69: R19 Suppose Host A wants to send a large file to Host B. The path from Host A to Host B has three links, of rates $R_1 = 500$ Kbps, $R_2 = 2$ Mbps, and $R_3 = 1$ Mbps.}
+
+\subsubsection{Assuming no other traffic in the network, what is the throughput for the file transfer?}
+
+\begin{equation}
+Throughput = \min(R_1, R_2, R_3)= 500\; \mathrm{Kbps}.
+\end{equation}
+
+\subsubsection{Suppose the file is 4 million bytes. Dividing the file size by the throughput, roughly how long will it take to transfer the file to Host B?}
+
+\begin{equation}
+Time = \frac{4 \;\mathrm{million\;bytes}\times 8\mathrm{bits}}{500 \;\mathrm{Kbps}}= 64\; s.
+\end{equation}
+
+\subsubsection{Repeat (a) and (b), but now with R2 reduced to 100 kbps.}
+
+\begin{align}
+&Throughput^{'} = 100\; \mathrm{Kbps}.\\
+&Time^{'}=\frac{4 \;\mathrm{million\;bytes}\times 8\mathrm{bits}}{100 \;\mathrm{Kbps}} = 320\;s.
+\end{align}
+
+\subsection{Chapter 1, Page 69: R23 What are the five layers in the Internet protocol stack? What are the principal responsibilities of each of these layers?}
+
+Top-down:
+\begin{itemize}
+\item Application Layer: supporting network applications
+
+\item Transport Layer: process-process data transfer
+
+\item Network Layer: routing of datagrams from source to destination
+
+\item Link Layer: data transfer between neighboring  network elements
+
+\item Physical Layer: bits "on the wire"
+\end{itemize}
+
+
+\subsection{Chapter 1, Page 71: P5 Review the car-caravan analogy in Section 1.4. Assume a propagation speed of 100 km/hour.}
+
+\subsubsection{Suppose the caravan travels 150 km, beginning in from one tollbooth, passing through a second tollbooth, and finishing just after a third tollbooth. What is the end-to-end delay?}
+
+The caravan is comprised of 10 cars. Each tollbooth are 75 km apart, cars' speed are 100 km/h, tollbooths service cars at a rate of one car per every 12 seconds.
+
+Tollbooth operation time: $10\times 0.2$=2\;min.
+
+Propagation time: $75/100$=0.75\;h=45\; min.
+
+Total time: $2\times3+45\times 2$=96 \;min.
+
+
+\subsubsection{Repeat (a) now assuming that there are eight cars in the caravan instead of ten.}
+
+Tollbooth operation time is now: $8\times 0.2$=1.6\; min.
+
+Total time: 94.8 \;min
+
+
+\subsection{Chapter 1, Page 72: P10 }
+
+Total end-to-end delay: 
+\begin{equation}
+\frac{d_1}{s_1}+\frac{L}{R_1}+d_{proc}+\frac{d_2}{s_2}+\frac{L}{R_2}+d_{proc}+\frac{d_3}{s_3}+\frac{L}{R_3} = 2d_{proc}+\frac{d_1}{s_1}+\frac{d_2}{s_2}+\frac{d_3}{s_3}+L\left(\frac{1}{R_1}+\frac{1}{R_2}+\frac{1}{R_3}\right)
+\end{equation}
+
+applying real values: Total delay = 64 msec.
+
+\subsection{Chapter 1, Page 75: P24  Suppose you would like to urgently deliver 40 terabytes data from Boston to Los Angeles. You have available a 100 Mbps dedicated link for data transfer. Would you prefer to transmit the data via this link or instead use FedEx overnight delivery? Explain.}
+
+40 Terabytes = $40\times 10^{12}\times 8=3.2\times10^{14}$ bits. Total time will be $3.2\times10^{14}\,bits/\,100\;Mbps\,=\,3.2\times10^{6}\;$s\;=\;$8.9\times 10^{2}$\;h\,=37 days.
+
+But with FedEx, data can be guaranteed to be delivered in one day. So I choose FedEx.
+
+
+
+
+\end{document}
