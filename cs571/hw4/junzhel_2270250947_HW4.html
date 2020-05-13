@@ -1,0 +1,100 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="description" content="A page for CS571_HW4">
+<style>
+    div.title{
+    text-align: center;
+    margin: auto;
+    font-size: 12px;
+    }
+</style>
+<title>2270250947_HW4_cs571</title>
+</head>
+    
+<body>
+    <div class="title">
+        <h1><bf>Enter URL for list of tallest buildings JSON File</bf></h1>
+        <form>
+        <input type="text" id="jsonInput">
+        <br><br>
+        <button onclick="loadJSON()">Submit Query</button>
+        </form>
+    </div>
+    
+    <script type="text/javascript">
+        
+        function loadJSON()
+        {
+            var jsonDoc;
+            var jsonfile = document.getElementById('jsonInput').value;
+            if(jsonfile == '')
+            {
+                alert("Empty input. Please input a valid json file name.\n");
+            }
+            
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', jsonfile, false);
+            try
+            {
+                xhr.send();
+                console.log(xhr.status, xhr.readyState, xhr.statusText);
+            }
+            catch(err)
+            {
+                console.log(err.message);
+                if(xhr.status != 200)
+                {
+                    alert('File: "'+jsonfile+'" not found.\n');
+                }
+                return;
+            }
+            
+            if(xhr.status == 200 && xhr.readyState == 4)
+            {
+                var data = JSON.parse(jsonDoc = xhr.responseText);
+                if(!data.Mainline.Table.hasOwnProperty("Row")||
+                    data.Mainline.Table.Row.length == 0)
+                {
+                    alert("Empty json table detected. Please input a valid json file.\n");
+                    return;
+                }
+                
+                var myWindow = window.open("", "jsontable", "width=1000,height=1000", "scrollbars=yes");
+                var output = '<table border="1"><tr>';
+                for(var i=0; i<data.Mainline.Table.Header.Data.length; i++)
+                {
+                    output +='<th>' + data.Mainline.Table.Header.Data[i] + '</th>';
+                }
+                output += '</tr>';
+
+                for(var i=0; i<data.Mainline.Table.Row.length; i++)
+                {
+                    output += '<tr>';
+                    output += '<td>'+ data.Mainline.Table.Row[i].Rank+'</td>';
+                    output += '<td>'+ data.Mainline.Table.Row[i].Name+'</td>';
+                    output += '<td><ul>';
+                    for(var j=0; j<data.Mainline.Table.Row[i].Hubs.Hub.length;j++)
+                    {
+                        if(j==0)
+                        {
+                            output += '<li><b>'+data.Mainline.Table.Row[i].Hubs.Hub[0]+'</b></li>';
+                            continue;
+                        }
+                        output += '<li>' + data.Mainline.Table.Row[i].Hubs.Hub[j]+'</li>';
+                    }
+                    output += '</ul></td>';
+                    output += '<td>'+ data.Mainline.Table.Row[i].Height+'</td>';
+                    output += '<td><a href ="'+ data.Mainline.Table.Row[i].HomePage+'">'+ data.Mainline.Table.Row[i].HomePage+'</a></td>';
+                    output += '<td><img src="'+data.Mainline.Table.Row[i].Logo+'" width="200" height="200"></td></tr>';
+                }
+                output += "</table>";
+                myWindow.document.write(output);
+            }//ready
+        }
+
+    </script>
+    
+</body>
+</html>
