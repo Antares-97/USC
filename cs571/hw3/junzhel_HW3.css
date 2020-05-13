@@ -1,0 +1,58 @@
+h1{
+    font-size: 3.0em;
+    margin: 10px auto;
+    font-style: normal;
+    text-align: center;
+}
+p.title{
+    color: darkgrey;
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 0.9em;
+    text-align: center;
+}
+.text{
+    margin: auto;
+    padding: 4px 0;
+    font-family: "Times New Roman", Times, serif;
+    font-style: normal;
+    font-size: 1.5em;
+    text-align: left;
+}
+.img{
+    object-fit: cover;
+    object-position: 50% 0;
+    width: 350px;
+    height: 350px;
+}
+p.copyright{
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-size: 0.5em;
+    text-align: center;
+}
+div.range{
+    padding:0 0.53in;
+    text-align: center;
+}
+div.title{
+    margin: 0.3in auto;
+    align-content: center;
+    border:1px solid #000;
+    width: 600px;
+    text-align: center;
+    overflow: hidden;
+    word-break: keep-all;
+    white-space:nowrap;
+}
+table.img{
+    margin: auto;
+    text-align:center;
+    overflow: hidden;
+    word-break: keep-all;
+    white-space: nowrap;
+}
+#id a:link, a:visited{
+    text-decoration: none;
+    color: darkgrey;
+}
