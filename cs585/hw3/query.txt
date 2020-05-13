@@ -1,0 +1,41 @@
+CREATE TABLE coordinate(id VARCHAR(10) PRIMARY KEY,
+point geometry, category VARCHAR(50));
+
+INSERT INTO coordinate(id, point, category)
+VALUES ('RTH', st_geomfromtext('POINT(-118.2899252967503 34.02016980356648)', 4326), 'lecture');
+INSERT INTO coordinate(id, point, category)
+VALUES ('SGM', st_geomfromtext('POINT(-118.2890298025949 34.02143895832944)', 4326), 'lecture');
+INSERT INTO coordinate(id, point, category)
+VALUES ('SAL', st_geomfromtext('POINT(-118.2894793895075 34.01951070095827)', 4326), 'lecture');
+INSERT INTO coordinate(id, point, category)
+VALUES ('OHE', st_geomfromtext('POINT(-118.2895010887148 34.02069781835002)', 4326), 'lecture');
+INSERT INTO coordinate(id, point, category)
+VALUES ('ADM', st_geomfromtext('POINT(-118.2855414727663 34.02097043960293)', 4326), 'lecture');
+INSERT INTO coordinate(id, point, category)
+VALUES ('SLH', st_geomfromtext('POINT(-118.2875260768526 34.01967003272538)', 4326), 'lecture');
+INSERT INTO coordinate(id, point, category)
+VALUES ('HAR', st_geomfromtext('POINT(-118.2873410837503 34.01907736037403)', 4326), 'lecture');
+INSERT INTO coordinate(id, point, category)
+VALUES ('THH', st_geomfromtext('POINT(-118.2845618279426 34.02223154101282)', 4326), 'lecture');
+INSERT INTO coordinate(id, point, category)
+VALUES ('LRC', st_geomfromtext('POINT(-118.2883820586152 34.02438438781299)', 4326), 'recreation');
+INSERT INTO coordinate(id, point, category)
+VALUES ('TCC', st_geomfromtext('POINT(-118.2864247210912 34.02033027311137)', 4326), 'recreation');
+INSERT INTO coordinate(id, point, category)
+VALUES ('STU', st_geomfromtext('POINT(-118.2857349305043 34.02016876229154)', 4326), 'recreation');
+INSERT INTO coordinate(id, point, category)
+VALUES ('BKS', st_geomfromtext('POINT(-118.2865553675592 34.02073308397282)', 4326), 'recreation');
+INSERT INTO coordinate(id, point, category)
+VALUES ('DML', st_geomfromtext('POINT(-118.2837999476268 34.02022824100016)', 4326), 'library');
+INSERT INTO coordinate(id, point, category)
+VALUES ('VKC', st_geomfromtext('POINT(-118.2840130028627 34.02124021598917)', 4326), 'library');
+INSERT INTO coordinate(id, point, category)
+VALUES ('LVL', st_geomfromtext('POINT(-118.2829079667066 34.02178552527093)', 4326), 'library');
+
+SELECT st_astext(st_convexhull(st_collect(point::geometry))) AS polygon FROM coordinate;
+
+SELECT map1.id, map2.id, st_distance(map1.point, map2.point)
+FROM coordinate AS map1, coordinate AS map2
+WHERE map1.id = 'ADM' AND map2.id <> 'ADM'
+ORDER BY st_distance(map1.point, map2.point)
+LIMIT 4;

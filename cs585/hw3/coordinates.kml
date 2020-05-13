@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>CS585_HW3</name>
+
+	<Style id="z1">
+		<IconStyle>
+			<Icon>
+				<href>http://www.google.com/intl/en_us/mapfiles/ms/micons/blue-dot.png</href>
+			</Icon>
+		</IconStyle>
+	</Style>
+
+	<Style id="z2">
+		<IconStyle>
+			<Icon>
+				<href>http://www.google.com/intl/en_us/mapfiles/ms/micons/red-dot.png</href>
+			</Icon>
+		</IconStyle>
+	</Style>
+
+	<Style id="l1"> 
+  		<LineStyle>  
+   			<color>#ff0000ff</color>
+   			<width>5</width>
+  		</LineStyle> 
+	 </Style>
+
+	<Placemark id="0E93C2D37E12684FDC9B">
+		<name>LRC</name>
+		<styleUrl>#z1</styleUrl>
+		<Point>
+			<coordinates>-118.2883820586152,34.02438438781299</coordinates>
+		</Point>
+	</Placemark>
+
+	<Placemark id="01D7C582821268504CF6">
+		<name>RTH</name>
+		<styleUrl>#z1</styleUrl>
+		<Point>
+			<coordinates>-118.2899252967503,34.02016980356648</coordinates>
+		</Point>
+	</Placemark>
+
+	<Placemark id="07EA6B775A126851093A">
+		<name>SGM</name>
+		<styleUrl>#z1</styleUrl>
+		<Point>
+			<coordinates>-118.2890298025949,34.02143895832944</coordinates>
+		</Point>
+	</Placemark>
+
+	<Placemark id="0C19D0CF6F1268513CF6">
+		<name>SAL</name>
+		<styleUrl>#z1</styleUrl>
+		<Point>
+			<coordinates>-118.2894793895075,34.01951070095827</coordinates>
+		</Point>
+	</Placemark>
+
+	<Placemark id="0741ED434D12685178FE">
+		<name>OHE</name>
+		<styleUrl>#z1</styleUrl>
+		<Point>
+			<coordinates>-118.2895010887148,34.02069781835002</coordinates>
+		</Point>
+	</Placemark>
+
+	<Placemark id="0E59E2E5261268528292">
+		<name>TCC</name>
+		<styleUrl>#z1</styleUrl>
+		<Point>
+			<coordinates>-118.2864247210912,34.02033027311137</coordinates>
+		</Point>
+	</Placemark>
+
+	<Placemark id="0D02B9B854126852A846">
+		<name>STU</name>
+		<styleUrl>#z1</styleUrl>
+		<Point>
+			<coordinates>-118.2857349305043,34.02016876229154</coordinates>
+		</Point>
+	</Placemark>
+
+	<Placemark id="092BFC07F4126852F445">
+		<name>BKS</name>
+		<styleUrl>#z1</styleUrl>
+		<Point>
+			<coordinates>-118.2865553675592,34.02073308397282</coordinates>
+		</Point>
+	</Placemark>
+
+	<Placemark id="0E265AA4A21268534598">
+		<name>ADM</name>
+		<styleUrl>#z1</styleUrl>
+		<Point>
+			<coordinates>-118.2855414727663,34.02097043960293</coordinates>
+		</Point>
+	</Placemark>
+
+	<Placemark id="03A6C140601268537255">
+		<name>DML</name>
+		<styleUrl>#z1</styleUrl>
+		<Point>
+			<coordinates>-118.2837999476268,34.02022824100016</coordinates>
+		</Point>
+	</Placemark>
+
+	<Placemark id="0D2DD573FE1268539EF6">
+		<name>VKC</name>
+		<styleUrl>#z1</styleUrl>
+		<Point>
+			<coordinates>-118.2840130028627,34.02124021598917</coordinates>
+		</Point>
+	</Placemark>
+
+	<Placemark id="00096772DE126853BF8B">
+		<name>LVL</name>
+		<styleUrl>#z1</styleUrl>
+		<Point>
+			<coordinates>-118.2829079667066,34.02178552527093</coordinates>
+		</Point>
+	</Placemark>
+
+	<Placemark id="06EFE504E51268555BDB">
+		<name>SLH</name>
+		<styleUrl>#z1</styleUrl>
+		<Point>
+			<coordinates>-118.2875260768526,34.01967003272538</coordinates>
+		</Point>
+	</Placemark>
+
+	<Placemark id="0B37571F52126855A703">
+		<name>HAR</name>
+		<styleUrl>#z1</styleUrl>
+		<Point>
+			<coordinates>-118.2873410837503,34.01907736037403</coordinates>
+		</Point>
+	</Placemark>
+
+	<Placemark id="01820A888D126856320D">
+		<name>THH</name>
+		<styleUrl>#z1</styleUrl>
+		<Point>
+			<coordinates>-118.2845618279426,34.02223154101282</coordinates>
+		</Point>
+	</Placemark>
+
+	<Placemark>
+		<name>convexHull_1</name>
+		<styleUrl>#z2</styleUrl>
+		<Point>
+			<coordinates>-118.28734108375,34.019077360374</coordinates>
+		</Point>
+	</Placemark>
+
+	<Placemark>
+		<name>convexHull_2</name>
+		<styleUrl>#z2</styleUrl>
+		<Point>
+			<coordinates>-118.28992529675,34.0201698035665</coordinates>
+		</Point>
+	</Placemark>
+
+	<Placemark>
+		<name>convexHull_3</name>
+		<styleUrl>#z2</styleUrl>
+		<Point>
+			<coordinates>-118.288382058615,34.024384387813</coordinates>
+		</Point>
+	</Placemark>
+
+	<Placemark>
+		<name>convexHull_4</name>
+		<styleUrl>#z2</styleUrl>
+		<Point>
+			<coordinates>-118.282907966707,34.0217855252709</coordinates>
+		</Point>
+	</Placemark>
+
+	<Placemark>
+		<name>convexHull_5</name>
+		<styleUrl>#z2</styleUrl>
+		<Point>
+			<coordinates>-118.283799947627,34.0202282410002</coordinates>
+		</Point>
+	</Placemark>
+
+	<Placemark>
+		<name>convexHull_6</name>
+		<styleUrl>#z2</styleUrl>
+		<Point>
+			<coordinates>-118.28734108375,34.019077360374</coordinates>
+		</Point>
+	</Placemark>
+
+	<Placemark> 
+		<name>ADM-neighbor1</name>
+		<styleUrl>#l1</styleUrl>
+ 		<LineString>
+  			<coordinates>
+			   -118.2855414727663,34.02097043960293
+			   -118.2857349305043,34.02016876229154
+ 		 	</coordinates>
+	 	</LineString>
+	 </Placemark>
+
+	 <Placemark> 
+		<name>ADM-neighbor2</name>
+		<styleUrl>#l1</styleUrl>
+ 		<LineString>
+  			<coordinates>
+			   -118.2855414727663,34.02097043960293
+			   -118.2865553675592,34.02073308397282
+ 		 	</coordinates>
+	 	</LineString>
+	 </Placemark>
+	 
+	 <Placemark> 
+		<name>ADM-neighbor3</name>
+		<styleUrl>#l1</styleUrl>
+ 		<LineString>
+  			<coordinates>
+			   -118.2855414727663,34.02097043960293
+			   -118.2864247210912,34.02033027311137
+ 		 </coordinates>
+	 	</LineString>
+	 </Placemark>
+
+	 <Placemark> 
+		<name>ADM-neighbor4</name>
+		<styleUrl>#l1</styleUrl>
+ 		<LineString>
+  			<coordinates>
+			   -118.2855414727663,34.02097043960293
+			   -118.2840130028627,34.02124021598917
+ 		 </coordinates>
+	 	</LineString>
+	 </Placemark>
+
+</Document>
+</kml>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
